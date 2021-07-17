@@ -13,10 +13,10 @@ def get_generator_block(input_dim, output_dim):      #Generator Block
         nn.BatchNorm1d(output_dim),
         nn.ReLU(inplace=True),
     )
-class SMOTified_GANs_Generator(nn.Module):     #Generator Model
+class GANs_Generator(nn.Module):     #Generator Model
 
     def __init__(self, z_dim, im_dim, hidden_dim):
-        super(SMOTified_GANs_Generator, self).__init__()
+        super(GANs_Generator, self).__init__()
         self.generator = nn.Sequential(
             get_generator_block(z_dim, hidden_dim),
             get_generator_block(hidden_dim, hidden_dim * 2),
@@ -36,9 +36,9 @@ def get_discriminator_block(input_dim, output_dim):       #Discriminator Block
         nn.Linear(input_dim, output_dim),
         nn.LeakyReLU(0.2, inplace=True)        
     )
-class SMOTified_GANs_Discriminator(nn.Module):         #Discriminator Model
+class GANs_Discriminator(nn.Module):         #Discriminator Model
     def __init__(self, im_dim, hidden_dim):
-        super(SMOTified_GANs_Discriminator, self).__init__()
+        super(GANs_Discriminator, self).__init__()
         self.discriminator = nn.Sequential(
             get_discriminator_block(im_dim, hidden_dim * 4),
             get_discriminator_block(hidden_dim * 4, hidden_dim * 2),
