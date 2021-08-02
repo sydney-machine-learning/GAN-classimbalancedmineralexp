@@ -1,2 +1,2 @@
 # GAN-classimbalancedmineralexp-
-Neural GAN for addressing class imbalanced hyper-spectral mineral exploration
+Neural GAN for addressing class imbalance problems in mineral exploration
